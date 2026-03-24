@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB = "sachingiri01"
-        ROLL = "2023BCD0009"
+        ROLL = "2023bcd0009"
     }
 
     stages {
