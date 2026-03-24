@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/sachingiri01/sachin-app.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'docker build -t $DOCKERHUB/${ROLL}_frontend ./frontend'
