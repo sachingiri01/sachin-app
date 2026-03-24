@@ -10,11 +10,11 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/sachingiri01/sachin-app.git'
+                git branch: 'main', url: 'https://github.com/sachingiri01/sachin-app.git'
             }
         }
 
-        stage('Build Images') {
+        stage('Build') {
             steps {
                 sh 'docker build -t $DOCKERHUB/${ROLL}_frontend ./frontend'
                 sh 'docker build -t $DOCKERHUB/${ROLL}_backend ./backend'
@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('Push Images') {
+        stage('Push') {
             steps {
                 sh 'docker push $DOCKERHUB/${ROLL}_frontend'
                 sh 'docker push $DOCKERHUB/${ROLL}_backend'
